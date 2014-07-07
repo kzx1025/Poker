@@ -13,6 +13,7 @@
     }
     public int getvalue()
     {
+
     	return value;
     }
     public String result()
