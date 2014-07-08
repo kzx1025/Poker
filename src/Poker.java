@@ -1,11 +1,15 @@
 
 public class Poker {
-	public int niu_type=0;
-
+	public int cow_type[]=new int[2];
+   // cow_type[2]={0,0};
 	public Card[][] cards;
+	int m=0;
+	int iswin=-1;
 	public Poker(Xipai d){
 		// TODO Auto-generated constructor stub
 		cards=new Card[2][5];
+		cow_type[0]=0;
+		cow_type[1]=0;
 	for(int i=0;i<2;i++)
 	{
 		for (int j=0;j<5;j++)
@@ -28,12 +32,12 @@ public class Poker {
 		System.out.println();
 		}
 	}
-     Card findmaxcard(Poker a) //找出一组牌中最大的牌
+     Card findmaxcard(Card[] cards) //找出一组牌中最大的牌
 	{
-		Card maxcard=a.cards[0][0];
+		Card maxcard=cards[0];
 		for(int i=1;i<5;i++)
 		{
-			Card currentcard=a.cards[0][i];
+			Card currentcard=cards[i];
 			if(maxcard.getvalue()<currentcard.getvalue()||(maxcard.getvalue()==currentcard.getvalue()&&maxcard.getcolor()<currentcard.getcolor()))
 			{
 				maxcard=currentcard;
@@ -43,11 +47,13 @@ public class Poker {
 		return maxcard;
 		
 	}
-	void compare(Poker a)
+	boolean comparesingle(Card a ,Card b)//判断单张牌大小
 	{
-		if(a.cards[0][0].getvalue()>a.cards[1][0].getvalue())
+		if(a.getvalue()==b.getvalue())
 		{
-			System.out.println("you win");
+			return a.getcolor()>b.getcolor();
+		}else {
+			return a.getvalue()>b.getvalue();
 		}
 	}
     int changeJQK(Card card)
@@ -60,6 +66,7 @@ public class Poker {
     }
 	void findcow(Card[] cards)
 	{
+		
 		int wuxiao_num=0;
 		int wuxiao_sum=0;
 		int wuhua_num=0;
@@ -80,15 +87,15 @@ public class Poker {
 
 			if ((wuxiao_num == 5)&&(wuxiao_sum <= 10)) {
 				// 判断是否为五小牛
-				niu_type=13;
+				cow_type[m]=13;
 				System.out.println("五小牛");
 
 			} else if (wuhua_num == 5) {
 				//判断是否为五花牛
-				niu_type=12;
+				cow_type[m]=12;
 				System.out.println("五花牛");
 			}
-		
+			else{
 			int sizha_count=0;
 			for(int i=0;i<5;i++)
 			{
@@ -99,7 +106,7 @@ public class Poker {
 				}
 				}
 				if(sizha_count==4){
-					niu_type=11;
+					cow_type[m]=11;
 					System.out.println("四炸");
 					break;
 				}
@@ -125,11 +132,11 @@ public class Poker {
 				int s=all_poker_sum%10;
 				if(s==0)
 				{
-					niu_type=10;
+					cow_type[m]=10;
 					System.out.println("牛牛");
 					break;
 				}else{
-					niu_type=s;
+					cow_type[m]=s;
 					System.out.println(s+"牛");
 					break;
 				}
@@ -137,12 +144,36 @@ public class Poker {
 		}
 	
 		//System.out.print(all_poker_sum);
-			if(niu_type==0)
+			if(cow_type[m]==0)
 			System.out.println("没牛");
+			}
+			m++;
+			
 		}
-	void compare(Card[] cards1,Card[] cards2)
+	int compare(Card[] cards1,Card[] cards2)
 	{
-		
+		if(cow_type[0]>cow_type[1])
+		{
+			//System.out.println("第一组赢");
+			return iswin=0;
+		}else if(cow_type[0]<cow_type[1])
+		{
+			//System.out.println("第二组赢");
+			return iswin=1;
+		}else{
+			
+			//当牌型相同时，进行如下处理比较
+			Card aCard=findmaxcard(cards1);//找出每一组中最大牌
+			Card bCard=findmaxcard(cards2);
+			if(comparesingle(aCard, bCard))
+			{
+				//System.out.println("第一组赢");
+				return iswin=0;
+			}else {
+				//System.out.println("第二组赢");
+				return iswin=1;
+			}
+		}
 	}
 
 }
