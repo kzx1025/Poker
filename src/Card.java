@@ -1,5 +1,6 @@
  public class Card{
 	private int color,value;
+	int flag;
 	private static String[] colors={"·½¿é","Ó£»¨","ºìÌÒ","ºÚÌÒ"};
 	private static String[] values={"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     Card(int color,int value)

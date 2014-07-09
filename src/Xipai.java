@@ -15,10 +15,11 @@ public class Xipai {
 			for(int b=0;b<13;b++)
 			{
 				cards.add(new Card(a,b));//在list里面添加所有可能的牌
+				//System.out.println(cards.size());
 			}
 		}
 		//开始模拟洗牌
-		for(int i=0;i<99;i++)
+		for(int i=0;i<100;i++)
 		{
 		index1=example.nextInt(cards.size()-1);
 		index2=example.nextInt(cards.size()-1);
@@ -37,6 +38,18 @@ public class Xipai {
 		return cards.remove(0);//移掉最上面一张牌
 	}
 	
-	
+	public ArrayList<Card> getcards()
+	{
+		return  cards;
+	}
+	public Card getunique(int m)
+	{
+		return cards.get(m);
+	}
+	public Card removeunique(int m)
+	{
+		return cards.remove(m);
+	}
+
 
 }

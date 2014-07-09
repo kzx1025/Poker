@@ -56,7 +56,7 @@ public class Poker {
 			return a.getvalue()>b.getvalue();
 		}
 	}
-    int changeJQK(Card card)
+  static  int changeJQK(Card card)
     {
     	if (card.getvalue()>9)//返回该值大小
     	{
