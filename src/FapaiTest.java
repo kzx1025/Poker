@@ -26,5 +26,35 @@ public class FapaiTest {
 			fail();
 		//fail("Not yet implemented");
 	}
+	
+	@Test
+	public void testWuxiaoniu() {
+		Card[]cards=new Card[5];
+		cards=fapai.wuxiaoniu(xipai);
+		for(int i=0;i<5;i++)
+		{
+		   logger.info(cards[i].result());
+		}
+		//fail("Not yet implemented");
+	}
+	@Test
+	public void testSizha() {
+		Card[]cards=new Card[5];
+		cards=fapai.sizha(xipai);
+		for(int i=0;i<5;i++)
+		{
+		   logger.info(cards[i].result());
+		}
+		//fail("Not yet implemented");
+	}
+	@Test
+	public void testNiu() {
+		//Card[]cards=new Card[5];
+		for(int i=0;i<3;i++)
+		    fapai.niu(xipai,i);
+		
+		
+		//fail("Not yet implemented");
+	}
 
 }
