@@ -15,7 +15,7 @@ public static int win=-1;
 		Card[]cards=new Card[5];
 		
 		//比较大小测试
-		/**Poker poker=new Poker(xipai);
+		Poker poker=new Poker(xipai);
 		
 		poker.display();
 		System.out.println("第一家牌:");
@@ -24,12 +24,12 @@ public static int win=-1;
 		poker.findcow(poker.cards[1]);
 		win=poker.compare(poker.cards[0],poker.cards[1]);
 		if(win==0){
-			System.out.println("第一家赢");
+			System.out.println("第一家赢!");
 		}else if(win==1){
-			System.out.println("第二家赢");
+			System.out.println("第二家赢!");
 		}else{
 			System.out.println("出错，无法判断！");
-		}**/
+		}
 		
 		
 		//按特定类型发牌测试

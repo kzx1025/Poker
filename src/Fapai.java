@@ -32,25 +32,26 @@ public class Fapai {
 	{
 		cards=new Card[5];
 		int a1,a2,a3,a4,a5=0;
-		
+		int card_num=d.getamount();
+		//System.out.println("ÊýÁ¿:"+card_num);
 		 //temp=d.removeonecard();
 
 		
-		for(a1=0;a1<48;a1++){
+		for(a1=0;a1<card_num-4;a1++){
 			if(d.getunique(a1).getvalue()+1>=5)
 				continue;
-			for(a2=a1+1;a2<49;a2++){
+			for(a2=a1+1;a2<card_num-3;a2++){
 				if(d.getunique(a2).getvalue()+1>=5)
 					continue;
-				for(a3=a2+1;a3<50;a3++)
+				for(a3=a2+1;a3<card_num-2;a3++)
 				{
 					if(d.getunique(a3).getvalue()+1>=5)
 						continue;
-					for(a4=a3+1;a4<51;a4++)
+					for(a4=a3+1;a4<card_num-1;a4++)
 					{
 						if(d.getunique(a4).getvalue()+1>=5)
 							continue;
-						for(a5=a4+1;a5<52;a5++)
+						for(a5=a4+1;a5<card_num;a5++)
 						{
 							if(d.getunique(a5).getvalue()+1>=5)
 								continue;
@@ -117,7 +118,7 @@ public class Fapai {
 		cards=new Card[5];
 		int i=0;
 		int m=0;
-		
+		int card_num=d.getamount();
 		while(true)
 		{
 			temp=d.getunique(m);
@@ -139,7 +140,7 @@ public class Fapai {
 			else{
 				m++;
 			}
-			if(m>52){
+			if(m>card_num){
 				return null;
 			}
 		}
@@ -160,13 +161,14 @@ public class Fapai {
     	cards=new Card[5];
 		//int i=1;
 		//int m=0;
+    	int card_num=d.getamount();
 		int a1=0,a2=0,a3=0,a4=0;
-		for(a1=0;a1<46;a1++){
-			for(a2=a1+1;a2<47;a2++)
+		for(a1=0;a1<card_num-4;a1++){
+			for(a2=a1+1;a2<card_num-3;a2++)
 			{
-				for(a3=a2+1;a3<48;a3++)
+				for(a3=a2+1;a3<card_num-2;a3++)
 				{
-					for(a4=a3+1;a4<49;a4++)
+					for(a4=a3+1;a4<card_num-1;a4++)
 					{
 						if(isequal(d.getunique(a1).getvalue(), d.getunique(a2).getvalue(), d.getunique(a3).getvalue(),d.getunique(a4).getvalue()))
 			    		{
@@ -233,16 +235,17 @@ public class Fapai {
     	int a1=0,a2=0,a3=0;
     	int hs=0;
     	cards=new Card[5];
+    	int card_num=d.getamount();
     	//cards[0]=d.removeonecard();
     	//cards[1]=d.removeonecard();
     	while(true)
     	{
     	a1=hs;
-    			for(;a1<50;a1++)
+    			for(;a1<card_num-2;a1++)
     			{
-    				for(a2=a1+1;a1<51;a2++)
+    				for(a2=a1+1;a1<card_num-1;a2++)
     				{
-    					for(a3=a2+1;a3<52;a3++){
+    					for(a3=a2+1;a3<card_num;a3++){
     						if((Poker.changeJQK(d.getunique(a1))+Poker.changeJQK(d.getunique(a2))+Poker.changeJQK(d.getunique(a3))+3)%10==0)
     			    		{
     							cards[0]=d.getunique(a1);
@@ -278,9 +281,9 @@ public class Fapai {
     		}
     		}**/
 
-    	for(int i=2;i<49;i++)
+    	for(int i=2;i<card_num-4;i++)
     	{
-    		for(int j=i+1;j<49;j++){
+    		for(int j=i+1;j<card_num-3;j++){
     			if((i!=n-1)&&(j!=n-1)){
     				//System.out.println(d.getunique(i).getvalue()+"!"+i+"and"+j+"!"+d.getamount());
     			if((Poker.changeJQK(d.getunique(i))+Poker.changeJQK(d.getunique(j))+2)%10==niu_num){
