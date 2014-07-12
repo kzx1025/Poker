@@ -1,3 +1,4 @@
+package dnpoker;
 import java.util.Scanner;
 
 import org.slf4j.Logger;
@@ -8,9 +9,9 @@ public class MainTest {
 	
 	public static void main(String args[])
 	{
-		int win=0;
+		int win=-1;
 		PokerSuit pokerSuit=new PokerSuit();
-	    
+	    pokerSuit.shuffle();
 		DNpoker adnpoker=pokerSuit.getDNpoker();
 		System.out.println(pokerSuit.getamount());
 		DNpoker bdnpoker=pokerSuit.getDNpoker();
@@ -20,9 +21,11 @@ public class MainTest {
 		adnpoker.display();
 		bdnpoker.display();
 		System.out.println("第一家牌:");
-		adnpoker.findcow();
+		int t1=adnpoker.findcow();
+		System.out.println(t1);
 		System.out.println("第二家牌:");
-		bdnpoker.findcow();
+		int t2=bdnpoker.findcow();
+		System.out.println(t2);
 		win=DNpoker.compare(adnpoker,bdnpoker);
 		if(win==0){
 			System.out.println("第一家赢!");
@@ -39,6 +42,7 @@ public class MainTest {
 		Scanner in=new Scanner(System.in);
         int a=in.nextInt();
         PokerSuit suit=new PokerSuit();
+        suit.shuffle();
         DNpoker testdnpoker=null;
         switch (a) {
 		case 0:
