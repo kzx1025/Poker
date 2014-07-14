@@ -110,25 +110,33 @@ public class DNpokerTest {
 				new Poker(3, 5), new Poker(1, 4) };
 		Poker[] pokers4 = { new Poker(0, 2), new Poker(1, 4), new Poker(2, 1),
 				new Poker(3, 6), new Poker(1, 3) };
+		Poker[] pokers5 = { new Poker(0, 2), new Poker(1, 4), new Poker(2, 1),
+				new Poker(2, 6), new Poker(1, 3) };
 		DNpoker dNpoker1 = new DNpoker();
 		DNpoker dNpoker2 = new DNpoker();
 		DNpoker dNpoker3 = new DNpoker();
 		DNpoker dNpoker4 = new DNpoker();
+		DNpoker dNpoker5 = new DNpoker();
 		dNpoker1.pokers = pokers1;
 		dNpoker2.pokers = pokers2;
 		dNpoker3.pokers = pokers3;
 		dNpoker4.pokers = pokers4;
+		dNpoker5.pokers = pokers5;
 		System.out.println(dNpoker1.findcow());
 		System.out.println(dNpoker2.findcow());
 		int win1 = DNpoker.compare(dNpoker1, dNpoker2);
 		int win2 = DNpoker.compare(dNpoker2, dNpoker1);
 		int win3 = DNpoker.compare(dNpoker3, dNpoker4);
 		int win4 = DNpoker.compare(dNpoker4, dNpoker3);
+		int win5 = DNpoker.compare(dNpoker4, dNpoker5);
+		int win6 = DNpoker.compare(dNpoker5, dNpoker4);
 		assertEquals(0, win1);
 		assertEquals(1, win2);
 		assertEquals(1, win3);
 		assertEquals(0, win4);
-		// fail("Not yet implemented");
+		assertEquals(0, win5);
+		assertEquals(1, win6);
+		/// fail("Not yet implemented");
 	}
 
 	@Test
@@ -140,8 +148,15 @@ public class DNpokerTest {
 		dNpoker.pokers[3] = new Poker(3, 4);
 		dNpoker.pokers[4] = new Poker(1, 1);
 
+		DNpoker dNpoker2 = new DNpoker();
+		dNpoker2.pokers[0] = new Poker(0, 1);
+		dNpoker2.pokers[1] = new Poker(0, 2);
+		dNpoker2.pokers[2] = new Poker(2, 5);
+		dNpoker2.pokers[3] = new Poker(3, 5);
+		dNpoker2.pokers[4] = new Poker(1, 1);
 		// System.out.println(poker.findmaxPoker(Pokers).result()+"asdasd");
 		assertEquals(dNpoker.pokers[2], dNpoker.findmaxcard());
+		assertEquals(dNpoker2.pokers[3], dNpoker2.findmaxcard());
 		// fail("Not yet implemented");
 	}
 
